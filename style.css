@@ -1,3 +1,225 @@
-body{
-    background-color: aquamarine;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --text-color: #63ff92;
+  --header-color: rgb(27, 27, 27);
+}
+
+body {
+  height: 100vh;
+  background: radial-gradient(circle, #252525, var(--header-color));
+  font-family: 'Manrope', sans-serif;
+  overflow-x: hidden;
+}
+
+header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  width: 100%;
+  background-color: transparent;
+  border-bottom: #63ff92 2px solid;
+  justify-content: space-between;
+  padding: 0 60px;
+  align-items: center;
+  height: 5rem;
+}
+
+#right-nav {
+  list-style: none;
+  display: flex;
+  gap: 60px;
+  align-items: center;
+}
+#right-nav li {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease ;
+}
+
+#right-nav li a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 0 16px;
+}
+
+
+
+
+#right-nav li:last-child,
+#right-nav li:nth-last-child(2) {
+  display: none;
+}
+
+
+.material-symbols-outlined {
+    font-size: 48px; 
+    color: var(--text-color); 
+    line-height: 1; 
+    margin-bottom: 4px; 
+    display: inline-block;
+}
+
+.name {
+  font-size: 18px; 
+  display: none;
+}
+
+#right-nav li:hover {
+  background-color: var(--text-color);
+  border-radius: 8px; 
+  transition: color 0.5s;
+  gap:0px;
+  margin: 0;
+}
+
+
+#right-nav li:hover .material-symbols-outlined {
+    display: flex;
+    color: var(--header-color);
+    margin: 0;
+}
+
+#right-nav li:hover .name {
+    display: block;
+    color: var(--header-color);
+    font-weight: 700;
+}
+
+.left-header h2 {
+  color: var(--text-color);
+  font-weight: 900;
+  font-size: 32px;
+}
+
+
+
+
+
+
+#side-nav {
+  position: absolute;
+  list-style: none;
+  align-items: center;
+  top: 5rem;
+  background-color: rgb(27, 27, 27);
+  width: 85%;
+  margin: 0;
+  padding: 0;
+  border: 5px solid var(--text-color);
+  border-radius: 10px;
+  display: flex;
+  z-index: 100;
+  flex-direction: column ;
+  overflow-x: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px); 
+  transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
+
+}
+#side-nav.show {
+  opacity: 1;
+  visibility: visible;
+   transform: translateY(0);
+}
+
+#side-nav li {
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 30px;
+  transition: background-color 0.3s ease;
+}
+#side-nav li a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 18px;
+  gap: 15px;
+  padding: 0 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+#side-nav li:hover {
+  background-color: var(--text-color);
+  border-radius: 8px; 
+  transition: color 0.5s;
+  gap:0px;
+  margin: 0;
+  align-self: center;
+  justify-content: center;
+}
+
+#side-nav .name{
+
+  display: inline-block ;
+}
+#side-nav li:hover a{
+  justify-content: center;
+  align-items: center;
+  padding: auto auto;
+}
+
+#side-nav li:hover .material-symbols-outlined {
+    display: flex;
+    color: var(--header-color);
+    margin: 0;
+}
+
+#side-nav li:hover .name {
+    display: block;
+    color: var(--header-color);
+    font-weight: 700;
+}
+
+#side-nav li:first-child:hover {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+
+#side-nav li:last-child:hover {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    #right-nav li {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    pointer-events: none; /* makes hidden ones not clickable */
+  }
+
+  #right-nav li:nth-last-child(2) {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
 }

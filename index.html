@@ -3,10 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+     <link rel="stylesheet" href="/style.css"/>
     <title>Web Portfolio</title>
+    
 </head>
 <body>
-    
+    <header>
+        <div class="left-header">
+            <h2 class="port-header">Portfolio</h2>
+        </div>
+        <div class="right-header">
+            <ul id="right-nav">
+                <li><a href="index.html"><span class="material-symbols-outlined">home</span><span class="name">Home</span></a></li>
+                <li><a href="projects.html"><span class="material-symbols-outlined">lists</span><span class="name">Projects</span></a></li>
+                <li><a href="contacts.html"><span class="material-symbols-outlined">mail</span><span class="name">Contact</span></a></li>
+                <li><span class="material-symbols-outlined" onclick="toggleMenu()" id="menu-icon">menu</span></li>
+                <li><span class="material-symbols-outlined" id="close-icon">close</span></li>
+            </ul>
+        </div>
+            <ul id="side-nav">
+                <li><a href="index.html"><span class="material-symbols-outlined">home</span><span class="name">Home</span></a></li>
+                <li><a href="projects.html"><span class="material-symbols-outlined">lists</span><span class="name">Projects</span></a></li>
+                <li><a href="contacts.html"><span class="material-symbols-outlined">mail</span><span class="name">Contact</span></a></li>
+            </ul>
+    </header>
+    <script src="script.js"></script>
 </body>
-</html>
