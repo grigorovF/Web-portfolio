@@ -16,16 +16,46 @@ body {
   overflow-x: hidden;
 }
 
+.spinner{
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--header-color);
+  z-index: 9999;
+  opacity: 1 ;
+  transition: opacity 1s ease-out;
+}
+
+.spinner::after {
+  content: "";
+  width: 200px;
+  height: 200px;
+  border: 50px solid var(--text-color);
+  border-top: 50px solid whitesmoke;
+  border-radius: 50%;
+  animation: spin 1.5s ease-in-out infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 header {
   position: absolute;
   left: 0;
   top: 0;
   display: flex;
-  width: 100%;
-  background-color: transparent;
-  border-bottom: #63ff92 2px solid;
   justify-content: space-between;
-  padding: 0 60px;
+  align-items: center;
+  width: 100vw;
+  border-bottom: #63ff92 2px solid;
+  padding: 0 5%;
   align-items: center;
   height: 5rem;
 }
@@ -36,6 +66,9 @@ header {
   gap: 60px;
   align-items: center;
 }
+
+
+
 #right-nav li {
   cursor: pointer;
   display: flex;
@@ -113,254 +146,206 @@ header {
   font-size: 32px;
 }
 
-
 #side-nav {
-  position: absolute;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+
+  width: 90%;
   list-style: none;
-  align-items: center;
+  position: absolute;
   top: 5rem;
-  background-color: rgb(27, 27, 27);
-  width: 85%;
-  margin: 0;
-  padding: 0;
   border: 5px solid var(--text-color);
-  border-radius: 10px;
-  display: flex;
-  z-index: 100;
-  flex-direction: column ;
-  overflow-x: hidden;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-10px); 
-  transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
-
-}
-#side-nav.show {
-  opacity: 1;
-  visibility: visible;
-   transform: translateY(0);
+  background-color: var(--header-color);
+  border-radius: 15px;
+  overflow: hidden;
+  z-index: 1000;
+  height: auto;
+  transform: translateY(10px);
+  transition: all 0.4s ease;
 }
 
-#side-nav li {
+#side-nav li{
   width: 100%;
-  cursor: pointer;
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 15px 30px;
-  transition: background-color 0.3s ease;
+  padding: 15px 0 15px 0;
+  align-items: flex-start;
+  transition: background-color 0.3s ease; 
 }
-#side-nav li a {
+
+#side-nav li a{
   text-decoration: none;
-  color: var(--text-color);
-  font-weight: 600;
-  font-size: 18px;
-  gap: 15px;
-  padding: 0 16px;
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
 
-#side-nav li:hover {
-  background-color: var(--text-color);
+
+#side-nav li:hover  {
+  width: 100%;
+  background-color: white;
   border-radius: 8px; 
-  transition: color 0.5s;
-  gap:0px;
-  margin: 0;
-  align-self: center;
-  justify-content: center;
+  transition: background-color 0.5s ease;
+  cursor: pointer;
 }
 
-#side-nav .name{
 
-  display: inline-block ;
-}
-#side-nav li:hover a{
-  justify-content: center;
-  align-items: center;
-  padding: auto auto;
-}
-
-#side-nav li:hover .material-symbols-outlined {
-    display: flex;
-    color: var(--header-color);
-    margin: 0;
-}
-
-#side-nav li:hover .name {
-    display: block;
-    color: var(--header-color);
+#side-nav li .name {
+    display: inline-block;
+    margin-left: 10px;
+    color: var(--text-color);
     font-weight: 700;
-}
-
-#side-nav li:first-child:hover {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+    text-align: left;
+    white-space: nowrap;
 }
 
 
-#side-nav li:last-child:hover {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-}
 
 main{
+  position: relative;
+  top: 8rem;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  padding: 7rem 60px; 
-  width: 100%;
-  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 80vh;
+  gap: 60px;
+  height: auto;
+  width: 100vw;
+  margin: 20px 0;
+
 }
 
 .profile {
   display: flex;
-  align-items: center;
-  gap: 20px;
-  flex: 1;
-  width: 100%;
-  margin: auto;
-  padding: auto;
+  justify-content: flex-start;
+  width: 100vw;
+  margin-left: 5%;
+
 }
 
 .profile img {
-  width: 600px;
-  height: 600px;
   border-radius: 50%;
+  width: 800px;
+  height: 800px;
   object-fit: cover;
   background-color: var(--text-color);
 }
 
 .social-container {
-  padding-top: 20px;
+  padding-top: 60px;
   display: flex;
   gap: 35px;
   align-items: center;
   justify-content: center;
+  margin-bottom: 20px;
 }
-
 .social-circle {
   width: 80px;
   height: 80px;
   border-radius: 50%;
   background-color: var(--text-color);
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.fas
+
+
+
+.profile{
+  width: 50vw;
+  height: auto;
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  padding: 0 20px;
+  width: 100vw;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.profile-details h1 {
+  color: var(--text-color);
+  font-size: 54px;
+  margin-bottom: 10%;
+  font-weight: 900;
+}
+
+.job-section {
+  display: flex;
+  flex-direction: column; /* Stack job-info vertically */
+  gap: 20px; /* Space between job-info sections */
+  width: 10vw;
+}
+
+
+.job-section-header {
+  color: whitesmoke;
+  font-size: 45px;
+  font-weight: 800;
+  padding-bottom: 7%;
+}
+.job-info p {
+  color: var(--text-color);
+  font-size: 26px;
+  line-height: 1.6;
+  text-align: justify;  
+}
+
+
+.job-info{
+  opacity: 0;
+  transform: translateX(1000px);
+  transition: all 0.5s ease-out;
+  position: absolute;
+  max-width: 100%;
+  padding: 0 10px;
+  margin-right: 5%;
+}
+.fade-out{
+  opacity: 0;
+  transform: translateX(1000px);
+  transition: all 0.5s ease-out;
+}
+
+.fade-in{
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.5s ease-out;
+}
+
+#cvButton{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translateX(50%);
+  padding: 20px 20px;
+  width: 350px; 
+  height: 70px;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  color: var(--header-color);
+  background-color: var(--text-color);
+  border: none;
+  border-radius: 20px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.social-circle:hover {
-  transform: scale(1.1);
-  transition: 0.5s ease-in;
-  background-color: snow;
-}
-
-
-.pfofile-info {
-  text-align: center;
-  width: 100%;  
-  margin: auto;
-  padding: auto;
-  position: relative;
-  height: 100% ;
-}
-
-.profile-details {
-  flex: 1;
-  color: var(--text-color);
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 100%;
-}
-
-
-.job-section{
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  width: 100%;
-}
-
-
-#name{
-  font-size: 48px;
-  font-weight: 900;
-  color: white;
-  padding-bottom: 25px;
-}
-
-
-.job-section-header{
-  font-size: 32px;
-  font-weight: 800;
-  border-bottom: 2px solid var(--text-color);
-  padding-bottom: 10px;
-}
-
-.job-info p{
-  font-size: 18px;
-  line-height: 1.6;
-  text-align: justify;
-  padding-top: 20px;
-  color: #cfcfcf;
-  font-weight: bold;
-  width: 100% ;
-}
-
-.job-info {
-  opacity: 1;
-  position: absolute;
-  transform: translateX(40px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-  pointer-events: none;
-  width: 100% ;
-}
-#net-developer,
-#graphic-designer{
-  opacity: 0;
-}
-.job-info.active {
-  opacity: 1;
-  transform: translateX(0);
-  position: relative;
-  pointer-events: all;
-}
-
-.job-info.inactive {
-  opacity: 0;
-  transform: translateX(-40px); 
-}
-
-
-.fa-brands.fa-linkedin,
-.fa-brands.fa-github,
-.fa-solid.fa-envelope,
-.fa-brands.fa-instagram {
-  color: var(--header-color);
-  font-size: 36px;
+#cvButton:hover i{
+  color: rgb(18, 18, 175);
   transition: color 0.3s ease;
 }
 
-.fa-brands.fa-linkedin:hover{
-  color: #0A66C2; 
-}
-.fa-brands.fa-github:hover{
-  color: #171515; 
-}
-
-.fa-solid.fa-envelope:hover{
-  color: #D44638; 
-}
-
-.fa-brands.fa-instagram:hover{
-  color: #E1306C; 
-}
 
 @media (min-width: 768px) and (max-width: 1024px) {
     #right-nav li {
@@ -377,4 +362,15 @@ main{
     transform: translateY(0);
     pointer-events: auto;
   }
+
+  .spinner::after {
+  content: "";
+  width: 100px;
+  height: 100px;
+  border: 25px solid var(--text-color);
+  border-top: 25px solid whitesmoke;
+  border-radius: 50%;
+  animation: spin 1.5s ease-in-out infinite;
+  }
+
 }
