@@ -1,12 +1,12 @@
-const sideList = document.getElementById('side-nav');
+const sideNav = document.getElementById("side-nav");
+const menuIcon = document.getElementById("menu-icon");
+const closeIcon = document.getElementById("close-icon");
 
-function toggleMenu(){
-  if (window.innerWidth < 1024 && sideList.style.display === 'none'){
-    sideList.classList.add('show');
-
+function toggle(){
+  if (sideNav.style.opacity === 0){
+    sideNav.style.opacity = 1;
   }
 }
-
 document.addEventListener("DOMContentLoaded", () => {
   const jobInfos = document.querySelectorAll(".job-info");
   let IdIndex = 0;

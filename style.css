@@ -47,7 +47,7 @@ body {
 }
 
 header {
-  position: absolute;
+  position: relative;
   left: 0;
   top: 0;
   display: flex;
@@ -93,14 +93,9 @@ header {
   padding: 0 16px;
 }
 
-
-
-
-#right-nav li:last-child,
-#right-nav li:nth-last-child(2) {
+#right-nav .menu-toggle{
   display: none;
 }
-
 
 .material-symbols-outlined {
     font-size: 48px; 
@@ -147,27 +142,29 @@ header {
 }
 
 #side-nav {
-  display: none;
+  display: flex;
   flex-direction: column;
   align-items: center;
-
+  top:5rem;
   width: 90%;
   list-style: none;
   position: absolute;
-  top: 5rem;
   border: 5px solid var(--text-color);
   background-color: var(--header-color);
   border-radius: 15px;
-  overflow: hidden;
   z-index: 1000;
   height: auto;
-  transform: translateY(10px);
-  transition: all 0.4s ease;
+  opacity:0; 
+  transition: transform 0.4s ease, opacity 0.4s ease; /* Анимација на трансформацијата */
+}
+.show {
+  transform: translateY(0);  /* Покажи го менито */
+  opacity: 1; /* Покажи го менито */
 }
 
+
 #side-nav li{
-  width: 100%;
-  display: flex;
+  width: auto;
   justify-content: center;
   padding: 15px 0 15px 0;
   align-items: flex-start;
@@ -182,7 +179,7 @@ header {
 
 
 
-#side-nav li:hover  {
+#side-nav li:hover{
   width: 100%;
   background-color: white;
   border-radius: 8px; 
@@ -200,34 +197,33 @@ header {
     white-space: nowrap;
 }
 
+.close-btn {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 25px;
+  margin-bottom: 10px;
+}
+
+.close-btn span {
+  cursor: pointer;
+}
 
 
 main{
   position: relative;
   top: 8rem;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  height: 80vh;
-  gap: 60px;
+  gap: 20px;
   height: auto;
-  width: 100vw;
-  margin: 20px 0;
+  width:   auto;
+  margin: 20px 5%;
 
 }
 
-.profile {
-  display: flex;
-  justify-content: flex-start;
-  width: 100vw;
-  margin-left: 5%;
-
-}
 
 .profile img {
   border-radius: 50%;
-  width: 800px;
-  height: 800px;
   object-fit: cover;
   background-color: var(--text-color);
 }
@@ -245,31 +241,20 @@ main{
   height: 80px;
   border-radius: 50%;
   background-color: var(--text-color);
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.fas
-
-
-
-.profile{
-  width: 50vw;
-  height: auto;
+  transition: all 0.3s ease;
+  font-size: 36px;
 }
 
 .profile-details {
   display: flex;
   flex-direction: column;
-  height: auto;
-  padding: 0 20px;
-  width: 100vw;
-  overflow: hidden;
-  margin-top: 20px;
+  position: relative;
+
 }
+
 
 .profile-details h1 {
   color: var(--text-color);
@@ -278,11 +263,15 @@ main{
   font-weight: 900;
 }
 
+
 .job-section {
   display: flex;
-  flex-direction: column; /* Stack job-info vertically */
-  gap: 20px; /* Space between job-info sections */
-  width: 10vw;
+  flex-direction: column; 
+  gap: 20px;
+  width: 1000px;
+  position: relative;
+  height: 600px;
+  overflow: hidden;
 }
 
 
@@ -297,14 +286,15 @@ main{
   font-size: 26px;
   line-height: 1.6;
   text-align: justify;  
+  margin-right: 10%;
 }
 
 
 .job-info{
+  position: absolute;
   opacity: 0;
   transform: translateX(1000px);
   transition: all 0.5s ease-out;
-  position: absolute;
   max-width: 100%;
   padding: 0 10px;
   margin-right: 5%;
@@ -313,20 +303,25 @@ main{
   opacity: 0;
   transform: translateX(1000px);
   transition: all 0.5s ease-out;
+  z-index: 1;
 }
 
 .fade-in{
+  z-index: 2;
   opacity: 1;
   transform: translateX(0);
   transition: all 0.5s ease-out;
 }
 
-#cvButton{
+#download {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  transform: translateX(50%);
-  padding: 20px 20px;
+  bottom: 20px;           /* same as social-container spacing */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
   width: 350px; 
   height: 70px;
   font-size: 20px;
@@ -339,29 +334,27 @@ main{
   border-radius: 20px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+
 }
 
-#cvButton:hover i{
-  color: rgb(18, 18, 175);
-  transition: color 0.3s ease;
+#download span{
+  color: var(--header-color);
 }
 
 
-@media (min-width: 768px) and (max-width: 1024px) {
-    #right-nav li {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-20px);
-    pointer-events: none;
+
+@media (max-width: 768px) {
+  #right-nav li:nth-child(1),
+  #right-nav li:nth-child(2),
+  #right-nav li:nth-child(3){
+    display: none;
   }
 
-  #right-nav li:nth-last-child(2) {
-    display: flex;
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-    pointer-events: auto;
+  #right-nav .menu-toggle{
+  display: flex;
+  cursor: pointer;
   }
+
 
   .spinner::after {
   content: "";
@@ -372,5 +365,13 @@ main{
   border-radius: 50%;
   animation: spin 1.5s ease-in-out infinite;
   }
+  .job-info p {
+    font-size: 18px;
+    margin-right: 5%;
+  }
 
+  .job-section {
+    height: auto;
+    overflow: visible;
+  }
 }

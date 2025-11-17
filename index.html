@@ -3,11 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-      <link
+
+    <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="/style.css" />
     <title>Web Portfolio</title>
   </head>
@@ -16,134 +20,139 @@
       <div class="left-header">
         <h2 class="port-header">Portfolio</h2>
       </div>
+
       <div class="right-header">
         <ul id="right-nav">
           <li>
-            <a href="index.html"
-              ><span class="material-symbols-outlined">home</span
-              ><span class="name">Home</span></a
-            >
+            <a href="index.html">
+              <span class="material-symbols-outlined">home</span>
+              <span class="name">Home</span>
+            </a>
           </li>
           <li>
-            <a href="projects.html"
-              ><span class="material-symbols-outlined">lists</span
-              ><span class="name">Projects</span></a
-            >
+            <a href="projects.html">
+              <span class="material-symbols-outlined">lists</span>
+              <span class="name">Projects</span>
+            </a>
           </li>
           <li>
-            <a href="contacts.html"
-              ><span class="material-symbols-outlined">mail</span
-              ><span class="name">Contact</span></a
-            >
+            <a href="contacts.html">
+              <span class="material-symbols-outlined">mail</span>
+              <span class="name">Contact</span>
+            </a>
           </li>
-          <li>
-            <span
-              class="material-symbols-outlined"
-              onclick="toggleMenu()"
-              id="menu-icon"
-              >menu</span
-            >
-          </li>
-          <li>
-            <span class="material-symbols-outlined" id="close-icon">close</span>
+          <li class="menu-toggle" id="menu-toggle">
+            <span class="material-symbols-outlined" onclick="toggle()" >menu</span>
           </li>
         </ul>
       </div>
+
       <ul id="side-nav">
+        <li class="close-btn">
+          <span class="material-symbols-outlined" id="close-icon">close</span>
+        </li>
+
         <li>
-          <a href="index.html"
-            ><span class="material-symbols-outlined">home</span
-            ><span class="name">Home</span></a
-          >
+          <a href="index.html">
+            <span class="material-symbols-outlined">home</span>
+            <span class="name">Home</span>
+          </a>
         </li>
         <li>
-          <a href="projects.html"
-            ><span class="material-symbols-outlined">lists</span
-            ><span class="name">Projects</span></a
-          >
+          <a href="projects.html">
+            <span class="material-symbols-outlined">lists</span>
+            <span class="name">Projects</span>
+          </a>
         </li>
         <li>
-          <a href="contacts.html"
-            ><span class="material-symbols-outlined">mail</span
-            ><span class="name">Contact</span></a
-          >
+          <a href="contacts.html">
+            <span class="material-symbols-outlined">mail</span>
+            <span class="name">Contact</span>
+          </a>
         </li>
       </ul>
     </header>
+    <div class="spinner"></div>
     <main>
-      <div class="spinner"></div>
       <section class="profile">
         <div class="profile-image">
           <img src="./img/profile.png" alt="Profile Picture" />
-          <div class="social-container">
-            <div class="social-circle" id="linkedIn"><i class="fa-brands fa-linkedin"></i></div>
-            <div class="social-circle" id="github"><i class="fa-brands fa-github"></i></div>
-            <div class="social-circle" id="gmail"><i class="fa-solid fa-envelope"></i></div>
-            <div class="social-circle" id="instagram"><i class="fa-brands fa-instagram"></i></div>
+        </div>
+        <div class="social-container">
+          <div class="social-circle"><i class="fa-brands fa-linkedin"></i></div>
+          <div class="social-circle"><i class="fa-brands fa-github"></i></div>
+          <div class="social-circle"><i class="fa-solid fa-envelope"></i></div>
+          <div class="social-circle">
+            <i class="fa-brands fa-instagram"></i>
           </div>
         </div>
       </section>
-      
+
       <section class="profile-details">
-        <div class="profile-info">
-          <h1 id="name">Filip Grigorov</h1>
-          <div class="job-section">
-            <div class="job-info" id="web-developer">
-              <h3 class="job-section-header">Web Developer</h3>
-              <p>
-                I am a passionate web developer with hands-on experience in
-                building responsive and dynamic websites using HTML, CSS,
-                JavaScript, and React. I enjoy transforming creative ideas into
-                functional, user-friendly interfaces. My skills extend to mobile
-                app development, where I focus on delivering clean and efficient
-                solutions. I have also worked with Python Django and Node.js for
-                backend development, allowing me to create full-stack
-                applications. I am always exploring new technologies to improve
-                performance and design. Collaboration and problem-solving are my
-                strengths, ensuring every project meets both client and user
-                expectations. All of my projects are available on my GitHub
-                profile, showcasing my dedication to continuous learning and
-                improvement.
-              </p>
-            </div>
-            <div class="job-info" id="net-developer">
-              <h3 class="job-section-header">.NET Developer</h3>
-              <p>
-                As a .NET developer, I specialize in building robust and
-                efficient applications using C# and MySQL databases. I have
-                successfully developed my own Restaurant Management System,
-                which handles orders, inventory, and user accounts with a secure
-                and responsive interface. My experience includes both desktop
-                and web-based applications, ensuring scalability and
-                maintainability. I pay strong attention to clean code
-                architecture and performance optimization. I am confident working
-                through all phases of development—from planning to deployment. I
-                enjoy turning complex requirements into practical, reliable
-                software. Continuous learning and refining my craft are core
-                parts of my professional approach.
-              </p>
-            </div>
-            <div class="job-info" id="graphic-designer">
-              <h3 class="job-section-header">Graphic Designer</h3>
-              <p>
-                I am a creative graphic designer with expertise in Adobe
-                Photoshop and Illustrator, passionate about turning ideas into
-                impactful visuals. Over the years, I have designed posters,
-                banners, and promotional materials for local football clubs,
-                political parties, and community events. My designs combine
-                strong aesthetics with clear communication to capture attention
-                and deliver messages effectively. I focus on color balance,
-                typography, and composition to create professional and memorable
-                designs. Working closely with clients, I ensure their vision is
-                reflected in every project. I’m always eager to explore new
-                styles and trends in design. Creativity and attention to detail
-                are the cornerstones of my work.
-              </p>
-            </div>
+        <h1 id="name">Filip Grigorov</h1>
+        <div class="job-section">
+          <div class="job-info" id="web-developer">
+            <h3 class="job-section-header">Web Developer</h3>
+            <p>
+              I am a passionate web developer with hands-on experience in
+              building responsive and dynamic websites using HTML, CSS,
+              JavaScript, and React. I enjoy transforming creative ideas into
+              functional, user-friendly interfaces. My skills extend to mobile
+              app development, where I focus on delivering clean and efficient
+              solutions. I have also worked with Python Django and Node.js for
+              backend development, allowing me to create full-stack
+              applications. I am always exploring new technologies to improve
+              performance and design. Collaboration and problem-solving are my
+              strengths, ensuring every project meets both client and user
+              expectations. All of my projects are available on my GitHub
+              profile, showcasing my dedication to continuous learning and
+              improvement.
+            </p>
+          </div>
+
+          <div class="job-info" id="net-developer">
+            <h3 class="job-section-header">.NET Developer</h3>
+            <p>
+              As a .NET developer, I specialize in building robust and efficient
+              applications using C# and MySQL databases. I have successfully
+              developed my own Restaurant Management System, which handles
+              orders, inventory, and user accounts with a secure and responsive
+              interface. My experience includes both desktop and web-based
+              applications, ensuring scalability and maintainability. I pay
+              strong attention to clean code architecture and performance
+              optimization. I am confident working through all phases of
+              development—from planning to deployment. I enjoy turning complex
+              requirements into practical, reliable software. Continuous
+              learning and refining my craft are core parts of my professional
+              approach.
+            </p>
+          </div>
+
+          <div class="job-info" id="graphic-designer">
+            <h3 class="job-section-header">Graphic Designer</h3>
+            <p>
+              I am a creative graphic designer with expertise in Adobe Photoshop
+              and Illustrator, passionate about turning ideas into impactful
+              visuals. Over the years, I have designed posters, banners, and
+              promotional materials for local football clubs, political parties,
+              and community events. My designs combine strong aesthetics with
+              clear communication to capture attention and deliver messages
+              effectively. I focus on color balance, typography, and composition
+              to create professional and memorable designs. Working closely with
+              clients, I ensure their vision is reflected in every project. I’m
+              always eager to explore new styles and trends in design.
+              Creativity and attention to detail are the cornerstones of my
+              work.
+            </p>
           </div>
         </div>
+        <div class="download-wrapper">
+          <a id="download" download>
+            <span class="material-symbols-outlined">download</span>
+            <span>Download</span>
+          </a>
+        </div>
       </section>
-      
     </main>
     <script src="script.js"></script>
   </body>
