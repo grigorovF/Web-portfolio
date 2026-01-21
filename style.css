@@ -145,14 +145,15 @@ main{
     flex-direction: column;    
     justify-content: space-between;
     height: 100%;
+    align-items: center;
     
     
 }
 
 #about-left img{
+    border-radius: 50%;
     width: 500px;
     height: 500px;
-    border-radius: 50%;
     object-fit: cover;
     border: 5px solid var(--day-accents);
     background-color: var(--day-accents);
@@ -164,6 +165,8 @@ main{
     padding: 20px 0;
     margin: 0;
     font-size: 35px;
+    justify-content: center;
+    gap: 30px;
 }
 
 .social-icons li{
@@ -178,7 +181,6 @@ main{
     transition: color 0.3s ease;
     border: 3px solid var(--day-primary-text);
     border-radius: 50%;
-    margin-left: 50px;
 }
 
 .social-icons li:first-child:hover{
@@ -285,20 +287,22 @@ main{
 }
 
 .text-section {
-    position: absolute;
-    top: 250px;
+    position:absolute;
+    top: 20%;
     opacity: 0;
     transform: translateX(50px);
     transition: opacity 0.8s ease, transform 0.8s ease;
     min-width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 90px;
+    justify-content: space-between;
+
 }
 
 
 
 .text-section.active {
+    display: flex;
     opacity: 1;
     transform: translateX(0);
 }
@@ -314,9 +318,9 @@ main{
     font-weight: 900;
     color: var(--day-primary-text);
      text-shadow: 2px 6px 8px rgba(0, 84, 107, 0.4);
-    margin-top: -10%;
     transform: translateY(10px);
     transition: opacity 0.5s ease, transform 0.5s ease;
+    margin-bottom: 10%;
 }
 
 .text-section.show-title h3{
@@ -326,6 +330,7 @@ main{
 
 .text-section p{
     visibility: hidden;
+    font-size: 18px;
 }
 
 #cv{
@@ -364,6 +369,7 @@ main{
         flex-direction: column;
         align-items: center;
         padding: 5% 5%;
+        justify-content: space-between;
     }
 
     #about-left,
@@ -372,11 +378,14 @@ main{
         flex-direction: column;
         align-items: center;
     }
-
+    .social-icons{
+        margin: 10px auto;
+    }
 
     #about-right h3{
         display: flex;
         justify-content: center;
+        margin: 40px auto;
     }
 
     #about-right p{
@@ -387,4 +396,72 @@ main{
         position: relative;
         bottom: 0;
     }  
+}
+
+@media screen and (min-width: 1920px) {
+    header{
+        height: 160px;
+    }
+
+    .header-left h3{
+        font-size: clamp(32px, 64px, 96px);
+        font-weight: bolder;
+    }
+
+    .header-right ul li {
+        font-size: clamp(20px, 40px, 60px);
+        font-weight: bolder;
+
+    }
+
+    header .mode{
+        width: 260px;
+        height: 90px;
+    }
+
+    header .mode span{
+        font-size: 48px;
+    }
+
+    .mode #togle-btn{
+        width: 80px;
+        height: 80px;
+    }
+    
+    main{
+        padding-top: 5%;
+    }
+    #about-left img{
+        width: 950px;
+        max-width: 1200px;
+        height: 950px;
+        max-height: 1200px;
+    }
+    #about-left li{
+        width: 180px;
+        height: 180px;
+        font-size: 90px;
+    }
+    #about-right h2{
+        font-size: clamp(68px, 112px, 148px);
+    }
+    #about-right h3{
+        font-size: clamp(48px, 68px, 112px);
+    }
+
+    #about-right p{
+        font-size: clamp(18px, 36px, 48px);
+    }
+
+    #about-right a{
+        width: 450px;
+        height: 150px;
+        font-weight: bolder;
+        font-size: 50px;
+    }
+
+
+
+
+    
 }

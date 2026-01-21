@@ -9,7 +9,13 @@ light.addEventListener('click', ()=>{
 
 dark.addEventListener('click', ()=>{
     document.body.classList.add('darkTheme');
-    togleBtn.style.left = '87px';
+    if (window.innerWidth <= 1920){
+      togleBtn.style.left = '87px';
+    }
+    else{
+      togleBtn.style.left = "172px";
+    }
+    
 });
 
 const menuBtn = document.getElementById('menu');
