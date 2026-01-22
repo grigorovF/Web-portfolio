@@ -101,3 +101,35 @@ handleResize();
   }
 
   showSection(currentIndex);
+
+function animateCounter(el, start, end, duration) {
+    let startTime = null;
+
+    function update(time) {
+        if (!startTime) startTime = time;
+        const progress = Math.min((time - startTime) / duration, 1);
+
+        const value = Math.floor(start + (end - start) * progress);
+        el.textContent = value;
+
+        if (progress < 1) {
+            requestAnimationFrame(update);
+        }
+    }
+
+    requestAnimationFrame(update);
+}
+
+const counters = document.querySelectorAll(".counter");
+counters.forEach(counter => {
+    let current = 3;
+
+    const interval = setInterval(() => {
+        if (current >= 100) {
+            clearInterval(interval);
+            return;
+        }
+        animateCounter(counter, current, current + 1, 200);
+        current++;
+    }, 200 + Math.random() * 300);
+});

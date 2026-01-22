@@ -131,12 +131,16 @@ header nav ul li a:hover::after {
 }
 
 
-
 main{
     display: flex;
-    padding-top: 2%;
+    flex-direction: column;
     height: 90vh;
-    padding: 10px 5%;
+}
+
+.main-section{
+    display: flex;
+    justify-content: space-between;
+    padding: 2% 5%;
     gap: 10%;
 }
 
@@ -144,9 +148,7 @@ main{
     display: flex;
     flex-direction: column;    
     justify-content: space-between;
-    height: 100%;
-    align-items: center;
-    
+    align-items: center;    
     
 }
 
@@ -167,6 +169,7 @@ main{
     font-size: 35px;
     justify-content: center;
     gap: 30px;
+    padding-top: 10%;
 }
 
 .social-icons li{
@@ -238,7 +241,6 @@ main{
 .nav-list li {
     list-style: none;
     display: flex;
-
     gap: 10px;
 }
 
@@ -277,7 +279,6 @@ main{
 
 
 #about-right h2{
-    float: left;
     font-size: 48px;
     font-weight: 900;
     position: relative;
@@ -295,8 +296,6 @@ main{
     min-width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-
 }
 
 
@@ -317,10 +316,10 @@ main{
     font-size: 32px;
     font-weight: 900;
     color: var(--day-primary-text);
-     text-shadow: 2px 6px 8px rgba(0, 84, 107, 0.4);
+    text-shadow: 2px 6px 8px rgba(0, 84, 107, 0.4);
     transform: translateY(10px);
     transition: opacity 0.5s ease, transform 0.5s ease;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
 }
 
 .text-section.show-title h3{
@@ -331,6 +330,43 @@ main{
 .text-section p{
     visibility: hidden;
     font-size: 18px;
+}
+
+.numbers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30%;
+}
+
+
+.num-class {
+    font-family: 'Michroma';
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border-left: 5px solid black;
+
+}
+
+.change {
+    display: flex;
+    align-items: baseline;
+    font-size: 72px;
+    line-height: 1;
+}
+
+.num-class:first-child{
+    border: none;
+}
+
+.letter-span {
+    display: inline-block;
+    transform: rotate(90deg);
+    transform-origin: center;
+    color: #a7a5a5;
 }
 
 #cv{
@@ -428,9 +464,6 @@ main{
         height: 80px;
     }
     
-    main{
-        padding-top: 5%;
-    }
     #about-left img{
         width: 950px;
         max-width: 1200px;
