@@ -102,7 +102,7 @@ handleResize();
 
   showSection(currentIndex);
 
-function animateCounter(el, start, end, duration) {
+  function animateCounter(el, start, end, duration) {
     let startTime = null;
 
     function update(time) {
@@ -120,16 +120,30 @@ function animateCounter(el, start, end, duration) {
     requestAnimationFrame(update);
 }
 
-const counters = document.querySelectorAll(".counter");
-counters.forEach(counter => {
-    let current = 3;
+const viewsEl  = document.querySelector(".views");
+const likesEl = document.querySelector(".likes");
+const sharesEl = document.querySelector(".shares");
 
-    const interval = setInterval(() => {
-        if (current >= 100) {
-            clearInterval(interval);
-            return;
-        }
-        animateCounter(counter, current, current + 1, 200);
-        current++;
-    }, 200 + Math.random() * 300);
-});
+let views  = parseInt(viewsEl.textContent);
+let likes = parseInt(likesEl.textContent);
+let shares = parseInt(sharesEl.textContent);
+
+setInterval(() => {
+    const change = Math.floor(Math.random() * 3) - 1; // -1, 0, +1
+
+    likes = Math.max(0, likes + change);
+    shares = Math.max(0, shares + change);
+
+    animateCounter(likesEl, parseInt(likesEl.textContent), likes, 300);
+    animateCounter(sharesEl, parseInt(sharesEl.textContent), shares, 300);
+}, 1200);
+
+setInterval(() => {
+    const increment = Math.floor(Math.random() * 3) + 1; // +1 до +3
+    views += increment;
+
+    const minViews = Math.max(likes, shares) + 5;
+    if (views < minViews) views = minViews;
+
+    animateCounter(viewsEl, parseInt(viewsEl.textContent), views, 500);
+}, 1500);
