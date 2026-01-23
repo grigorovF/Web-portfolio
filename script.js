@@ -1,22 +1,17 @@
+const darkModeBtn = document.getElementById('dark-mode');
+const lightModeBtn = document.getElementById('light-mode');
 const togleBtn = document.getElementById('togle-btn');
-const light = document.getElementById('light-mode');
-const dark = document.getElementById('dark-mode');
+darkModeBtn.addEventListener('click', () =>{
+    togleBtn.style.left = "165px";
+    document.body.classList.add('darkMmode');
+  }
+)
 
-light.addEventListener('click', ()=>{
-    document.body.classList.remove('darkTheme');
-    togleBtn.style.left = '2px';
-});
-
-dark.addEventListener('click', ()=>{
-    document.body.classList.add('darkTheme');
-    if (window.innerWidth <= 1920){
-      togleBtn.style.left = '87px';
-    }
-    else{
-      togleBtn.style.left = "172px";
-    }
-    
-});
+lightModeBtn.addEventListener('click', () =>{
+    togleBtn.style.left = "2px";
+    document.body.classList.remove('darkMmode');
+  }
+)
 
 const menuBtn = document.getElementById('menu');
 const navList = document.querySelector('.nav-list');
