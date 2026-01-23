@@ -145,10 +145,10 @@ setInterval(() => {
 
     animateCounter(viewsEl, parseInt(viewsEl.textContent), views, 500);
 }, 1500);
-
+/*
 window.onload = () => {
   const spinner = document.getElementById("spinner");
   setTimeout(() => {
     spinner.classList.add('hidden');
-  }, 5); 
-};
+  }, 5000); 
+};*/
