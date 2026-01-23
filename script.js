@@ -69,7 +69,6 @@ handleResize();
     section.classList.add('active');
 
     typeWriter(p, p.dataset.fullText, 20, () => {
-      // ⏱ чекај 5 секунди ПОСЛЕ пишување
       timer = setTimeout(() => {
         changeSection();
       }, 5000);
@@ -151,5 +150,5 @@ window.onload = () => {
   const spinner = document.getElementById("spinner");
   setTimeout(() => {
     spinner.classList.add('hidden');
-  }, 5000); 
+  }, 5); 
 };

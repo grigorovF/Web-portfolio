@@ -488,35 +488,19 @@ main{
 
     header nav ul li:last-child {
         display: block;
+        transform: translateX(1200px);
+        animation: anim-main-right 0.7s ease 5.4s forwards;
     }
-    
-   .main-section{
+
+    .main-section{
         display: flex;
         flex-direction: column;
-        align-items: space-between;
-   }  
+        margin: auto;
+        padding: auto;
+        align-items: center;
+    }
 
-   .social-icons{
-        padding-bottom: 0;
-   }
-
-   #about-right{
-        display: flex;
-        flex-direction: column;
-        position: relative;
-   }
-
-   #about-right h2,
-   #about-right h3{
-    text-align: center;
-   }
-
-   #about-right h2{
-    margin: -20% 0;
-   }
-
-
-   
+     
 }
 
 
