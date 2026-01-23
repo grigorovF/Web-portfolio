@@ -38,7 +38,7 @@ body{
     z-index: 99999;
     opacity: 1;
     visibility: visible;
-    transform: opacity 0.7s ease;
+    transition: opacity 0.7s ease, visibility 0.7s ease;
 }
 
 
@@ -84,6 +84,13 @@ header{
     font-family: 'Popins', sans-serif;
 }
 
+.header-left h3{
+    font-weight: bolder;
+    font-size: 32px;
+    transform: translateX(-200%);
+    animation: anim-main-left 0.7s 5.3s ease forwards;
+}
+
 .mode{
     border: 3px solid var(--day-primary-text);
     width: 130px;
@@ -94,6 +101,8 @@ header{
     align-items: center;
     font-size: 60px;
     position: relative;
+    transform: translateY(-500%);
+    animation: anim-main-mode 0.7s 5.5s ease forwards;
 }
 
 .mode #togle-btn{
@@ -152,6 +161,23 @@ header nav ul li:last-child{
     font-size: 28px;
 }
 
+header nav ul li:nth-child(1){
+    transform: translateX(1200%);
+    animation: anim-main-right 0.7s 5.5s ease forwards;
+}
+
+
+header nav ul li:nth-child(2){
+    transform: translateX(1200%);
+    animation: anim-main-right 0.7s 5.7s ease forwards;
+}
+
+
+header nav ul li:nth-child(3){
+    transform: translateX(1200%);
+    animation: anim-main-right 0.7s 5.9s ease forwards;
+}
+
 header nav ul li a::after{
   content: ""; 
   position: absolute;
@@ -198,6 +224,8 @@ main{
     object-fit: cover;
     border: 5px solid var(--day-accents);
     background-color: var(--day-accents);
+    transform: translateX(-200%);
+    animation: anim-main-left 0.7s 5.5s ease forwards;
 }
 
 
@@ -225,8 +253,28 @@ main{
     border-radius: 50%;
 }
 
+.social-icons li:nth-child(1){
+    transform: translateX(-1200%);
+    animation: anim-main-left 0.7s 6.3s ease forwards;
+}
+
+.social-icons li:nth-child(2){
+    transform: translateX(-1200%);
+    animation: anim-main-left 0.7s 6.1s ease forwards;
+}
+
+.social-icons li:nth-child(3){
+    transform: translateX(-1200%);
+    animation: anim-main-left 0.7s 5.9s ease forwards;
+}
+
+.social-icons li:nth-child(4){
+    transform: translateX(-1200%);
+    animation: anim-main-left 0.7s 5.7s ease forwards;
+}
+
 .social-icons li:first-child:hover{
-    background-color: #3b5998; 
+   background-color: #3b5998; 
     color: white;
 }
 
@@ -376,7 +424,9 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 30%;
+    padding-top: 30%;
+    transform: scale(0);
+    animation: anim-numbers 0.7s ease-in-out 5.9s forwards;
 }
 
 
@@ -440,38 +490,33 @@ main{
         display: block;
     }
     
-    main{
+   .main-section{
         display: flex;
         flex-direction: column;
-        align-items: center;
-        padding: 5% 5%;
-        justify-content: space-between;
-    }
+        align-items: space-between;
+   }  
 
-    #about-left,
-    #about-right{
+   .social-icons{
+        padding-bottom: 0;
+   }
+
+   #about-right{
         display: flex;
         flex-direction: column;
-        align-items: center;
-    }
-    .social-icons{
-        margin: 10px auto;
-    }
-
-    #about-right h3{
-        display: flex;
-        justify-content: center;
-        margin: 40px auto;
-    }
-
-    #about-right p{
-            text-align: justify;
-    }
-
-    #about-right a{
         position: relative;
-        bottom: 0;
-    }  
+   }
+
+   #about-right h2,
+   #about-right h3{
+    text-align: center;
+   }
+
+   #about-right h2{
+    margin: -20% 0;
+   }
+
+
+   
 }
 
 
@@ -543,10 +588,59 @@ main{
         height: 150px;
         font-weight: bolder;
         font-size: 50px;
+    }   
+}
+
+@keyframes anim-main-left {
+    0%{
+        transform: translateX(-200%);
     }
 
+    100%{
+        transform: translateX(0%);
+    }
+    
+}
 
+@keyframes anim-main-right {
+    0%{
+        transform: translateX(200%);
+    }
 
+    100%{
+        transform: translateX(0%);
+    }
+    
+}
 
+@keyframes anim-main-mode {
+    0%{
+        transform: translateY(-500%);
+    }
+
+    100%{
+        transform: translateY(0%);
+    }    
+}
+
+@keyframes anim-main-left {
+    0%{
+        transform: translateX(-200%);
+    }
+
+    100%{
+        transform: translateX(0%);
+    }
+    
+}
+
+@keyframes anim-numbers {
+    0%{
+        transform: scale(0);
+    }
+
+    100%{
+        transform: scale(1);
+    }
     
 }

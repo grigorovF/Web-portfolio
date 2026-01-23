@@ -40,8 +40,7 @@ handleResize();
  const sections = document.querySelectorAll('.text-section');
   let currentIndex = 0;
   let timer;
-
-  // зачувај оригинален текст
+  
   sections.forEach(section => {
     const p = section.querySelector('p');
     p.dataset.fullText = p.textContent;
