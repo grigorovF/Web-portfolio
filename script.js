@@ -2,7 +2,7 @@ const darkModeBtn = document.getElementById('dark-mode');
 const lightModeBtn = document.getElementById('light-mode');
 const togleBtn = document.getElementById('togle-btn');
 darkModeBtn.addEventListener('click', () =>{
-    togleBtn.style.left = "165px";
+    togleBtn.style.left = "87px";
     document.body.classList.add('darkMmode');
   }
 )
@@ -147,3 +147,20 @@ window.onload = () => {
     spinner.classList.add('hidden');
   }, 5000); 
 };
+
+//project .js
+const projectsLink = document.querySelector('a[href="#projects"]');
+const mainSection = document.querySelector('.main-section');
+const projectsSection = document.getElementById('projects-section');
+const backBtn = document.getElementById('back-to-home');
+
+projectsLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    mainSection.classList.add('slide-up');
+    projectsSection.classList.add('active');
+});
+
+backBtn.addEventListener('click', () => {
+    mainSection.classList.remove('slide-up');
+    projectsSection.classList.remove('active');
+});
