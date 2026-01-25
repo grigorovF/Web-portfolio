@@ -1,22 +1,23 @@
+//dark-mode
 const darkModeBtn = document.getElementById('dark-mode');
 const lightModeBtn = document.getElementById('light-mode');
 const togleBtn = document.getElementById('togle-btn');
-darkModeBtn.addEventListener('click', () =>{
-    togleBtn.style.left = "87px";
-    document.body.classList.add('darkMmode');
-  }
-)
 
-lightModeBtn.addEventListener('click', () =>{
-    togleBtn.style.left = "2px";
-    document.body.classList.remove('darkMmode');
-  }
-)
+darkModeBtn.addEventListener('click', () => {
+  togleBtn.style.left = "87px";
+  document.body.classList.add('darkMode');
+});
 
+lightModeBtn.addEventListener('click', () => {
+  togleBtn.style.left = "2px";
+  document.body.classList.remove('darkMode');
+});
+
+//nav-bar
 const menuBtn = document.getElementById('menu');
 const navList = document.querySelector('.nav-list');
 
-menuBtn.addEventListener('click', () => {
+menuBtn.addEventListener('click', ()=> {
     navList.classList.toggle('active');
 });
 
@@ -29,10 +30,21 @@ function handleResize() {
     }
 }
 
+document.body.addEventListener('click', (e) =>{
+   if (
+        navList.classList.contains('active') &&
+        !navList.contains(e.target) &&
+        !menuBtn.contains(e.target)
+    ) {
+        navList.classList.remove('active');
+    }
+})
+
 window.addEventListener('resize', handleResize);
 handleResize();
 
- const sections = document.querySelectorAll('.text-section');
+//text-animate
+const sections = document.querySelectorAll('.text-section');
   let currentIndex = 0;
   let timer;
   
@@ -113,6 +125,7 @@ handleResize();
     requestAnimationFrame(update);
 }
 
+//numbers
 const viewsEl  = document.querySelector(".views");
 const likesEl = document.querySelector(".likes");
 const sharesEl = document.querySelector(".shares");
@@ -141,6 +154,7 @@ setInterval(() => {
     animateCounter(viewsEl, parseInt(viewsEl.textContent), views, 500);
 }, 1500);
 
+//spinner
 window.onload = () => {
   const spinner = document.getElementById("spinner");
   setTimeout(() => {
@@ -148,29 +162,71 @@ window.onload = () => {
   }, 5000); 
 };
 
-//project .jsconst projectsLink = document.querySelector('a[href="#projects"]');
-const projectsMobileLink = document.querySelector('.nav-list a[href="#projects"]');
-const mainSection = document.querySelector('.main-section');
-const projectsSection = document.getElementById('projects-section');
-const backBtn = document.getElementById('back-to-home');
 
+//sections
+const allNavLinks = document.querySelectorAll('a[href^="#"]');
+const homeSec    = document.getElementById('about-section');
+const projSec    = document.getElementById('projects-section');
+const contactSec = document.getElementById('contact-section');
 
-function openProjects(e) {
-    e.preventDefault();
-    if (navList.classList.contains('active')) {
-        navList.classList.remove('active');
-    }
-    mainSection.classList.add('slide-up');
-    projectsSection.classList.add('active');
-    document.body.style.overflow = 'hidden';
+const pages = [homeSec, projSec, contactSec];
+
+function showPage(targetId) {
+    const target = document.getElementById(targetId);
+    if (!target) return;
+
+    // 'pages' е низата што веќе ја дефинираше
+    pages.forEach(page => {
+        if (page) {
+            page.classList.remove('active-page');
+            page.classList.add('hide-page');
+        }
+    });
+
+    target.classList.remove('hide-page');
+    target.classList.add('active-page');
 }
+window.addEventListener('DOMContentLoaded', () => {
+    showPage('about-section');
+});
 
-function closeProjects() {
-    mainSection.classList.remove('slide-up');
-    projectsSection.classList.remove('active');
-    document.body.style.overflow = 'auto';
-}
+allNavLinks.forEach(link => {
+    link.addEventListener('click', e => {
+        const targetId = link.getAttribute('href').substring(1);
+        const validSections = ['about-section', 'projects-section', 'contact-section'];
+        
+        if (validSections.includes(targetId)) {
+            e.preventDefault();
+            showPage(targetId);
+        }
+    });
+});
 
-projectsLink.addEventListener('click', openProjects);
-projectsMobileLink.addEventListener('click', openProjects);
-backBtn.addEventListener('click', closeProjects);
+document.addEventListener('DOMContentLoaded', () => {
+    showPage('about-section');
+});
+
+
+//projects-page
+
+//range
+const skills = {
+  html: 100,
+  css: 95,
+  javascript: 70,
+  node: 55,
+  react: 60,
+  csharp: 90,
+  python: 55,
+  photoshop: 70,
+  illustrator: 85
+};
+
+Object.entries(skills).forEach(([key, value]) => {
+  const input = document.getElementById(`${key}-input`);
+  const span = document.getElementById(`${key}Span`);
+
+  input.value = value;
+  input.disabled = true;
+  span.innerText = value + "%";
+});

@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-
     <header>
       <div class="header-left">
         <h3>My Portfolio</h3>
@@ -24,9 +23,9 @@
       <div class="header-right">
         <nav>
           <ul>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about-section">About Me</a></li>
+            <li><a href="#projects-section">Projects</a></li>
+            <li><a href="#contact-section">Contact</a></li>
             <li id="menu"><i class="fa fa-bars"></i></li>
           </ul>
         </nav>
@@ -35,12 +34,12 @@
     <main>
       <div class="nav-list">
         <ul>
-          <li><a href="#about">About Me</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#about-section">About Me</a></li>
+          <li><a href="#projects-section">Projects</a></li>
+          <li><a href="#contact-section">Contact</a></li>
         </ul>
       </div>
-      <section class="main-section">
+      <section id="about-section">
         <section id="about-left">
           <img src="/img/profile.png" alt="Profile Picture" />
           <ul class="social-icons">
@@ -125,7 +124,6 @@
               </div>
               <span class="letter-span">SHARES</span>
             </div>
-            
           </section>
           <section id="cv">
             <a href="./CV-EN.pdf" download>
@@ -136,21 +134,111 @@
         </section>
       </section>
 
-      <section class="projects">
-        <h3></h3>
+      <section id="projects-section">
+        <section id="projects-left">
+          <h3>My skills</h3>
+          <ul id="projects-list">
+            <li>
+              <div class="list-span-class">
+                <label for="html-input">HTML</label>
+                <span id="htmlSpan"></span>
+              </div>
+              <div class="per-div">
+                <input type="range" id="html-input" />
+              </div>
+            </li>
+
+            <li>
+              <div class="list-span-class">
+                <label for="css-input">CSS</label>
+                <span id="cssSpan"></span>
+              </div>
+              <div class="per-div">
+                <input type="range" id="css-input" />
+              </div>
+            </li>
+
+            <li>
+              <div class="list-span-class">
+                <label for="javascript-input">JavaScript</label>
+                <span id="javascriptSpan"></span>
+              </div>
+              <div class="per-div">
+                <input type="range" id="javascript-input" />
+              </div>
+            </li>
+
+            <li>
+              <div class="list-span-class">
+                <label for="node-input">NodeJS</label>
+                <span id="nodeSpan"></span>
+              </div>
+              <div class="per-div">
+                <input type="range" id="node-input" />
+              </div>
+            </li>
+
+            <li>
+              <div class="list-span-class">
+                <label for="react-input">React</label>
+                <span id="reactSpan"></span>
+              </div>
+              <div class="per-div">
+                <input type="range" id="react-input" />
+              </div>
+            </li>
+
+            <li>
+              <div class="list-span-class">
+                <label for="csharp-input">C#</label>
+                <span id="csharpSpan"></span>
+              </div>
+              <div class="per-div">
+                <input type="range" id="csharp-input" />
+              </div>
+            </li>
+
+            <li>
+              <div class="list-span-class">
+                <label for="python-input">Python</label>
+                <span id="pythonSpan"></span>
+              </div>
+              <div class="per-div">
+                <input type="range" id="python-input" />
+              </div>
+            </li>
+            
+            <li>
+              <div class="list-span-class">
+                <label for="photoshop-input">Photoshop</label>
+                <span id="photoshopSpan"></span>
+              </div>
+              <div class="per-div">
+                <input type="range" id="photoshop-input" />
+              </div>
+            </li>
+
+            <li>
+              <div class="list-span-class">
+                <label for="illustrator-input">Illustrator</label>
+                <span id="illustratorSpan"></span>
+              </div>
+              <div class="per-div">
+                <input type="range" id="illustrator-input" />
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <section class="projects-left">
+          <h3>My projects</h3>
+        </section>
       </section>
-      <section id="projects-section" class="projects-page">
-      <h2>Мои Проекти</h2>
-      <div class="projects-grid">
-          <div class="project-card">Проект 1</div>
-          <div class="project-card">Проект 2</div>
-      </div>
-      <button id="back-to-home">Назад</button>
-  </section>
       <footer></footer>
     </main>
-    
+
     <script src="script.js"></script>
     <div id="spinner"></div>
+    */
   </body>
 </html>
