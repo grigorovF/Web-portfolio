@@ -148,19 +148,29 @@ window.onload = () => {
   }, 5000); 
 };
 
-//project .js
-const projectsLink = document.querySelector('a[href="#projects"]');
+//project .jsconst projectsLink = document.querySelector('a[href="#projects"]');
+const projectsMobileLink = document.querySelector('.nav-list a[href="#projects"]');
 const mainSection = document.querySelector('.main-section');
 const projectsSection = document.getElementById('projects-section');
 const backBtn = document.getElementById('back-to-home');
 
-projectsLink.addEventListener('click', (e) => {
+
+function openProjects(e) {
     e.preventDefault();
+    if (navList.classList.contains('active')) {
+        navList.classList.remove('active');
+    }
     mainSection.classList.add('slide-up');
     projectsSection.classList.add('active');
-});
+    document.body.style.overflow = 'hidden';
+}
 
-backBtn.addEventListener('click', () => {
+function closeProjects() {
     mainSection.classList.remove('slide-up');
     projectsSection.classList.remove('active');
-});
+    document.body.style.overflow = 'auto';
+}
+
+projectsLink.addEventListener('click', openProjects);
+projectsMobileLink.addEventListener('click', openProjects);
+backBtn.addEventListener('click', closeProjects);
