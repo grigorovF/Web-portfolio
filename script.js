@@ -185,6 +185,11 @@ function showPage(targetId) {
 
     target.classList.remove('hide-page');
     target.classList.add('active-page');
+
+    
+  if (targetId === 'projects-section') {
+    animateSkills();
+  }
 }
 window.addEventListener('DOMContentLoaded', () => {
     showPage('about-section');
@@ -210,23 +215,49 @@ document.addEventListener('DOMContentLoaded', () => {
 //projects-page
 
 //range
-const skills = {
-  html: 100,
-  css: 95,
-  javascript: 70,
-  node: 55,
-  react: 60,
-  csharp: 90,
-  python: 55,
-  photoshop: 70,
-  illustrator: 85
-};
 
-Object.entries(skills).forEach(([key, value]) => {
-  const input = document.getElementById(`${key}-input`);
-  const span = document.getElementById(`${key}Span`);
+document.querySelectorAll(".progress-bar").forEach(bar => {
+  const value = bar.dataset.value;
+  const fill = bar.querySelector(".progress-fill");
+  const percent = bar.previousElementSibling.querySelector(".percent");
 
-  input.value = value;
-  input.disabled = true;
-  span.innerText = value + "%";
+  let current = 0;
+  const speed = 15;
+
+  const interval = setInterval(() => {
+    if (current >= value) {
+      clearInterval(interval);
+      current = value;
+    }
+    fill.style.width = current + "%";
+    percent.textContent = current + "%";
+    current++;
+  }, speed);
 });
+
+let skillsAnimated = false;
+
+function animateSkills() {
+  if (skillsAnimated) return;
+  skillsAnimated = true;
+
+  document.querySelectorAll("#projects-section .progress-bar").forEach(bar => {
+    const value = +bar.dataset.value;
+    const fill = bar.querySelector(".progress-fill");
+    const percent = bar.previousElementSibling.querySelector(".percent");
+
+    let current = 0;
+    const speed = 15;
+
+    const interval = setInterval(() => {
+      if (current >= value) {
+        clearInterval(interval);
+        current = value;
+      }
+      fill.style.width = current + "%";
+      percent.textContent = current + "%";
+      current++;
+    }, speed);
+  });
+}
+
