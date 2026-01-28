@@ -155,42 +155,54 @@ setInterval(() => {
 }, 1500);
 
 //spinner
-window.onload = () => {
-  const spinner = document.getElementById("spinner");
-  setTimeout(() => {
-    spinner.classList.add('hidden');
-  }, 5000); 
-};
 
+function showSpinner() {
+  spinner.classList.remove("hidden");
+}
 
+function hideSpinner() {
+  spinner.classList.add("hidden");
+}
 //sections
 const allNavLinks = document.querySelectorAll('a[href^="#"]');
 const homeSec    = document.getElementById('about-section');
 const projSec    = document.getElementById('projects-section');
-const contactSec = document.getElementById('contact-section');
+const contactSec = document.getElementById('contacts-section');
 
 const pages = [homeSec, projSec, contactSec];
 
 function showPage(targetId) {
-    const target = document.getElementById(targetId);
-    if (!target) return;
+  const target = document.getElementById(targetId);
+  if (!target) return;
 
-    // 'pages' е низата што веќе ја дефинираше
+  showSpinner();
+
+  setTimeout(() => {
     pages.forEach(page => {
-        if (page) {
-            page.classList.remove('active-page');
-            page.classList.add('hide-page');
-        }
+      page.classList.remove("active-page", "animate");
+      page.classList.add("hide-page");
+      page.style.zIndex = 0;
     });
 
-    target.classList.remove('hide-page');
-    target.classList.add('active-page');
+    target.classList.remove("hide-page");
+    target.classList.add("active-page");
+    target.style.zIndex = 10;
 
-    
-  if (targetId === 'projects-section') {
-    animateSkills();
-  }
+    void target.offsetWidth;
+
+    target.classList.add("animate");
+
+    hideSpinner();
+
+    if (targetId === "projects-section") {
+      resetSkills();
+      animateSkillsSequential();
+    }
+
+  }, 700);
 }
+
+
 window.addEventListener('DOMContentLoaded', () => {
     showPage('about-section');
 });
@@ -236,28 +248,65 @@ document.querySelectorAll(".progress-bar").forEach(bar => {
 });
 
 let skillsAnimated = false;
+function animateSkillsSequential() {
+  const items = document.querySelectorAll("#projects-section .skills-list li");
 
-function animateSkills() {
-  if (skillsAnimated) return;
-  skillsAnimated = true;
+  let index = 0;
 
-  document.querySelectorAll("#projects-section .progress-bar").forEach(bar => {
-    const value = +bar.dataset.value;
+  function animateNext() {
+    if (index >= items.length) return;
+
+    const item = items[index];
+    const bar = item.querySelector(".progress-bar");
     const fill = bar.querySelector(".progress-fill");
-    const percent = bar.previousElementSibling.querySelector(".percent");
+    const percent = item.querySelector(".percent");
+    const value = +bar.dataset.value;
 
-    let current = 0;
-    const speed = 15;
+    // 1️⃣ појавување
+    item.classList.add("visible");
 
-    const interval = setInterval(() => {
-      if (current >= value) {
-        clearInterval(interval);
-        current = value;
-      }
-      fill.style.width = current + "%";
-      percent.textContent = current + "%";
-      current++;
-    }, speed);
-  });
+    // 2️⃣ полнење (по мало доцнење)
+    setTimeout(() => {
+      let current = 0;
+      const interval = setInterval(() => {
+        if (current >= value) {
+          clearInterval(interval);
+          current = value;
+        }
+        fill.style.width = current + "%";
+        percent.textContent = current + "%";
+        current++;
+      }, 15);
+    }, 300);
+
+    index++;
+    setTimeout(animateNext, 600); // чека пред следен бар
+  }
+
+  animateNext();
 }
 
+function playProjectsAnimations() {
+  projSec.classList.remove("animate");
+  void projSec.offsetWidth;
+  projSec.classList.add("animate");
+
+  resetSkills();
+  animateSkillsSequential();
+}
+
+function resetSkills() {
+  skillsAnimated = false;
+
+  document.querySelectorAll("#projects-section .skills-list li").forEach(item => {
+    item.classList.remove("visible");
+  });
+
+  document.querySelectorAll("#projects-section .progress-fill").forEach(fill => {
+    fill.style.width = "0%";
+  });
+
+  document.querySelectorAll("#projects-section .percent").forEach(p => {
+    p.textContent = "0%";
+  });
+}

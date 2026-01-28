@@ -45,6 +45,8 @@ body {
     visibility 0.7s ease;
 }
 
+
+
 #spinner.hidden {
   opacity: 0;
   visibility: hidden;
@@ -89,9 +91,10 @@ header {
 .header-left h3 {
   font-weight: bolder;
   font-size: 32px;
-  transform: translateX(-200%);
-  animation: anim-main-left 0.7s 5.3s ease forwards;
   color: var(--day-primary-text);
+  opacity: 0;
+  transform: translateX(-50px); 
+  animation: anim-main-left 0.8s ease forwards 0.8s;
 }
 
 .mode {
@@ -104,8 +107,9 @@ header {
   align-items: center;
   font-size: 60px;
   position: relative;
-  transform: translateY(-500%);
-  animation: anim-main-mode 0.7s 5.5s ease forwards;
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: anim-main-mode 0.8s ease forwards 1s;
 }
 
 .mode #togle-btn {
@@ -148,6 +152,7 @@ header nav ul li {
   display: flex;
   font-size: 18px;
   cursor: pointer;
+  opacity: 0;
 }
 
 header nav ul li a {
@@ -163,20 +168,10 @@ header nav ul li:last-child {
   font-size: 28px;
 }
 
-header nav ul li:nth-child(1) {
-  transform: translateX(1200%);
-  animation: anim-main-right 0.7s 5.5s ease forwards;
-}
 
-header nav ul li:nth-child(2) {
-  transform: translateX(1200%);
-  animation: anim-main-right 0.7s 5.7s ease forwards;
-}
-
-header nav ul li:nth-child(3) {
-  transform: translateX(1200%);
-  animation: anim-main-right 0.7s 5.9s ease forwards;
-}
+header nav ul li:nth-child(1) { animation: anim-main-right 0.6s ease forwards 1.2s; }
+header nav ul li:nth-child(2) { animation: anim-main-right 0.6s ease forwards 1.4s; }
+header nav ul li:nth-child(3) { animation: anim-main-right 0.6s ease forwards 1.6s; }
 
 header nav ul li a::after {
   content: "";
@@ -200,16 +195,16 @@ main {
   flex-direction: column;
   position: relative;
   width: 100%;
-  height: calc(100dvh - 80px);
+  height: calc(100dvh - 60px);
 }
 #about-section,
 #projects-section,
 #contact-section {
   position: fixed;
-  top: 80px;
+  top: 0;
   left: 0;
   width: 100%;
-  height: calc(100vh - 80px);
+  height: 100dvh;
   background-color: var(--day-background);
   transition:
     transform 0.6s ease-in-out,
@@ -230,20 +225,31 @@ main {
   z-index: 10;
 }
 
-#about-section,
-#projects-section {
+#about-section{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   position: absolute;
   gap: 160px;
-  padding: 2% 5%;
+  padding: 0 5%;
+}
+
+#projects-section {
+  display: flex;
+  position: absolute;
+  gap: 160px;
+  padding: 0 5%;
 }
 
 #about-left {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  
+}
+
+#about-left.animate .social-icons {
+  animation: anim-main-left 1.2s ease forwards;
 }
 
 #about-left img {
@@ -253,8 +259,6 @@ main {
   object-fit: cover;
   border: 5px solid var(--day-accents);
   background-color: var(--day-accents);
-  transform: translateX(-200%);
-  animation: anim-main-left 0.7s 5.5s ease forwards;
 }
 
 .social-icons {
@@ -279,26 +283,13 @@ main {
   transition: color 0.3s ease;
   border: 3px solid var(--day-primary-text);
   border-radius: 50%;
+  transform: translateX(-1200%);
+
 }
 
-.social-icons li:nth-child(1) {
-  transform: translateX(-1200%);
-  animation: anim-main-left 0.7s 6.3s ease forwards;
-}
 
-.social-icons li:nth-child(2) {
-  transform: translateX(-1200%);
-  animation: anim-main-left 0.7s 6.1s ease forwards;
-}
-
-.social-icons li:nth-child(3) {
-  transform: translateX(-1200%);
-  animation: anim-main-left 0.7s 5.9s ease forwards;
-}
-
-.social-icons li:nth-child(4) {
-  transform: translateX(-1200%);
-  animation: anim-main-left 0.7s 5.7s ease forwards;
+#about-section.animate .social-icons li {
+  animation: anim-main-left 0.7s ease forwards;
 }
 
 .social-icons li:first-child:hover {
@@ -384,22 +375,37 @@ main {
   color: #fff;
 }
 
-#projects-left h3 {
-  font-size: 42px;
-  font-weight: 700;
+#projects-left h2 {
+    font-size: 48px;
+  font-weight: 900;
   position: relative;
   color: var(--day-accents);
-  text-shadow: 1px 3px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 2px 6px 8px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  padding-bottom: 20px;
+}
+
+#projects-left h2 {
+  opacity: 0;
+}
+
+#projects-section.animate #projects-left h2 {
+  animation: textVisible 0.7s ease forwards;
 }
 
 .skills-list {
   list-style: none;
+  width: 300px;
   padding: 0;
   margin: 0;
+  
 }
 
 .skills-list li {
-  margin-bottom: 20px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+
 }
 
 .list-span-class {
@@ -415,16 +421,29 @@ main {
   background-color: #e5e7eb;
   border-radius: 10px;
   overflow: hidden;
+  border: 1px solid var(--night-background);
+  
 }
 
 .progress-fill {
   height: 100%;
   width: 0;
-  background-color: #4f8cff; 
+  background-color: var(--day-accents); 
   border-radius: 10px;
-  transition: width 1.2s ease;
+  transition: width 0.8s ease; 
+  
+ }
+
+ .skills-list li {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
+.skills-list li.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 #about-right {
   display: flex;
@@ -435,14 +454,25 @@ main {
   max-height: 90vw;
 }
 
-#about-right h2 {
+#about-right h2, #projects-right h2 {
   font-size: 48px;
   font-weight: 900;
   position: relative;
   color: var(--day-accents);
   text-shadow: 2px 6px 8px rgba(0, 0, 0, 0.4);
   opacity: 0;
-  animation: textVisible 0.7s 6.4s forwards;
+}
+
+#about-right h2,
+#about-right h3,
+#about-right p {
+  opacity: 0;
+}
+
+#about-section.animate #about-right h2,
+#about-section.animate #about-right h3,
+#about-section.animate #about-right p {
+  animation: textVisible 0.7s ease forwards;
 }
 
 .text-section {
@@ -501,8 +531,11 @@ main {
   align-items: center;
   padding-top: 30%;
   transform: scale(0);
-  animation: anim-numbers 0.7s ease-in-out 5.9s forwards;
 }
+
+#about-section.animate .numbers {
+  animation: anim-numbers 0.7s ease forwards;
+} 
 
 .num-class {
   font-family: "Michroma";
@@ -538,7 +571,10 @@ main {
   align-items: center;
   padding: 20px 0;
   transform: translateY(600px);
-  animation: cv-animate 0.7s 6.7s forwards;
+}
+
+#about-section.animate #cv {
+  animation: cv-animate 0.7s ease forwards;
 }
 
 #about-right a {
@@ -557,19 +593,6 @@ main {
 
 /*project-page*/
 
-#about-section,
-#projects-section,
-#contact-section {
-  position: fixed;
-  top: 80px;
-  left: 0;
-  width: 100%;
-  height: calc(100vh - 80px);
-  transition:
-    transform 0.6s ease-in-out,
-    opacity 0.5s ease;
-  overflow-y: auto;
-}
 .hide-page {
   opacity: 0;
   pointer-events: none;
@@ -580,14 +603,10 @@ main {
   opacity: 1;
   pointer-events: auto;
   transform: translateX(0);
+  z-index: 100;
 }
 
 #projects-left {
-  display: flex;
-  flex-direction: column;
-}
-
-#projects-left #projects-list li {
   display: flex;
   flex-direction: column;
   list-style: none;
@@ -608,9 +627,40 @@ main {
 .per-div input[type="range"] {
   width: 100%;
 }
+
+.list-span-class {
+  position: relative;
+  margin: 20px 0;
+}
+
+
+.list-span-class label {
+  font-size: 14px;
+  color: var(--night-background);
+  font-weight: 600;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.list-span-class .percent {
+  font-size: 14px;
+  color: var(--night-background);
+  font-weight: 600;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+
+
+/* Стил за label */
 /*darkmMode*/
 
-.darkMode #about-section {
+.darkMode #about-section, .darkMode #project-section {
   background-color: var(--night-background);
 }
 .darkMode header {
@@ -730,14 +780,8 @@ main {
     animation: anim-main-right 0.7s ease 5.4s forwards;
   }
 
-  #about-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: fixed;
-    gap: 40px;
-  }
 
+  
   .social-icons {
     padding-bottom: -50px;
   }
@@ -779,7 +823,7 @@ main {
   }
 
   #about-left img {
-    width: 900%;
+    width: 90%;
     max-width: 450px;
     max-height: 450px;
     transform: scale(1);
@@ -841,13 +885,18 @@ main {
     height: 180px;
     font-size: 90px;
   }
-  #about-right h2 {
+  #about-right h2, #projects-left h2, #projects-right h2  {
     font-size: clamp(68px, 112px, 148px);
   }
-  #about-right h3 {
+  #about-right h3, #projects-right h3 {
     font-size: clamp(48px, 68px, 112px);
   }
+  .progress-bar{
+    height: 30px;
+    border-radius: 30px;
+  }
 
+  .list-span-class, 
   #about-right p {
     font-size: clamp(18px, 36px, 48px);
   }
@@ -862,41 +911,37 @@ main {
 
 @keyframes anim-main-left {
   0% {
-    transform: translateX(-200%);
+    transform: translateX(-50%);
+    opacity: 0;
   }
 
   100% {
     transform: translateX(0%);
+    opacity: 1;
   }
 }
 
 @keyframes anim-main-right {
   0% {
-    transform: translateX(200%);
+    transform: translateY(-200%);
+    opacity: 0;
   }
 
   100% {
-    transform: translateX(0%);
+    transform: translateY(0%);
+    opacity: 1;
   }
 }
 
 @keyframes anim-main-mode {
   0% {
-    transform: translateY(-500%);
+    transform: translateY(-50%);
+    opacity: 0;
   }
 
   100% {
     transform: translateY(0%);
-  }
-}
-
-@keyframes anim-main-left {
-  0% {
-    transform: translateX(-200%);
-  }
-
-  100% {
-    transform: translateX(0%);
+    opacity: 1;
   }
 }
 
@@ -936,5 +981,16 @@ main {
 
   100% {
     opacity: 1;
+  }
+
+}
+
+@keyframes skils-list-animation{
+  0%{
+    transform: translateY(5000%);
+  }
+
+  100%{
+    transform: translateY(0);
   }
 }
