@@ -93,7 +93,7 @@ header {
   font-size: 32px;
   color: var(--day-primary-text);
   opacity: 0;
-  transform: translateX(-50px); 
+  transform: translateX(-150px); 
   animation: anim-main-left 0.8s ease forwards 0.8s;
 }
 
@@ -230,7 +230,8 @@ main {
   justify-content: space-around;
   position: absolute;
   gap: 160px;
-  padding: 0 5%;
+  padding: 10px 5%;
+  max-height: 90%;
 }
 
 #projects-section {
@@ -243,13 +244,9 @@ main {
 #about-left {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  align-items: space-between;
   
-}
-
-#about-left.animate .social-icons {
-  animation: anim-main-left 1.2s ease forwards;
 }
 
 #about-left img {
@@ -283,13 +280,32 @@ main {
   transition: color 0.3s ease;
   border: 3px solid var(--day-primary-text);
   border-radius: 50%;
-  transform: translateX(-1200%);
-
 }
 
 
-#about-section.animate .social-icons li {
-  animation: anim-main-left 0.7s ease forwards;
+.social-icons li:nth-child(1) {
+  opacity: 0;
+  transform: translateX(-150px);
+  animation: anim-main-left 2.1s ease forwards;
+}
+
+
+.social-icons li:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-150px);
+  animation: anim-main-left 1.8s ease forwards;
+}
+
+.social-icons li:nth-child(3) {
+  opacity: 0;
+  transform: translateX(-150px);
+  animation: anim-main-left 1.5s ease forwards;
+}
+
+.social-icons li:nth-child(4) {
+  opacity: 0;
+  transform: translateX(-150px);
+  animation: anim-main-left 1.2s ease forwards;
 }
 
 .social-icons li:first-child:hover {
@@ -570,7 +586,8 @@ main {
   justify-content: center;
   align-items: center;
   padding: 20px 0;
-  transform: translateY(600px);
+  transform: translateY(-200px);
+  opacity: 0;
 }
 
 #about-section.animate #cv {
@@ -776,7 +793,7 @@ main {
 
   header nav ul li:last-child {
     display: block;
-    transform: translateX(1200px);
+    transform: translateX(120px);
     animation: anim-main-right 0.7s ease 5.4s forwards;
   }
 
@@ -911,31 +928,31 @@ main {
 
 @keyframes anim-main-left {
   0% {
-    transform: translateX(-50%);
+    transform: translateX(-150px);
     opacity: 0;
   }
 
   100% {
-    transform: translateX(0%);
+    transform: translateX(0px);
     opacity: 1;
   }
 }
 
 @keyframes anim-main-right {
   0% {
-    transform: translateY(-200%);
+    transform: translateY(-150px);
     opacity: 0;
   }
 
   100% {
-    transform: translateY(0%);
+    transform: translateY(0);
     opacity: 1;
   }
 }
 
 @keyframes anim-main-mode {
   0% {
-    transform: translateY(-50%);
+    transform: translateY(-150px);
     opacity: 0;
   }
 
@@ -967,10 +984,12 @@ main {
 
 @keyframes cv-animate {
   0% {
-    transform: translateY(200px);
+    transform: translateY(-200px);
+    opacity: 0;
   }
   100% {
     transform: translateY(0);
+    opacity: 1;
   }
 }
 
