@@ -194,8 +194,10 @@ main {
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 100%;
-  height: calc(100dvh - 60px);
+  width: 100dwv;
+  height: 100dvh;
+  margin: 0;
+  padding: 0;
 }
 #about-section,
 #projects-section,
@@ -327,7 +329,7 @@ main {
 .nav-list {
   flex-direction: column;
   position: absolute;
-  top: 0px;
+  top: 80px;
   width: 90%;
   margin: 0 5%;
   background-color: var(--day-background);
