@@ -3,23 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+
     <title>Portfolio</title>
     <link rel="stylesheet" href="./style3.css" />
   </head>
+
   <body>
     <header>
       <div class="header-left">
         <h3>My Portfolio</h3>
       </div>
+
       <div class="mode">
         <span id="light-mode">🌞</span>
         <span id="dark-mode">🌜</span>
         <div id="togle-btn"></div>
       </div>
+
       <div class="header-right">
         <nav>
           <ul>
@@ -30,6 +35,7 @@
           </ul>
         </nav>
       </div>
+
       <div class="nav-list">
         <ul>
           <li><a href="#about-section">About Me</a></li>
@@ -38,10 +44,13 @@
         </ul>
       </div>
     </header>
+
     <main>
+      <!-- ABOUT -->
       <section id="about-section" class="active-page animate">
         <section id="about-left">
           <img src="./img/profile.png" alt="Profile Picture" />
+
           <ul class="social-icons">
             <li><i class="fa fa-facebook"></i></li>
             <li><i class="fa fa-linkedin"></i></li>
@@ -49,12 +58,14 @@
             <li><i class="fa fa-github"></i></li>
           </ul>
         </section>
+
         <section id="about-right">
           <h2>Filip Grigorov</h2>
+
           <section class="main-text">
             <section class="text-section">
-              <h3 class="text-section-h" id="C#-h">C# Developer</h3>
-              <p class="text-section-p" id="C#-p">
+              <h3 class="text-section-h" id="csharp-h">C# Developer</h3>
+              <p class="text-section-p">
                 I’m a C# developer with a strong focus on backend development
                 and SQL database design. I enjoy building structured, reliable
                 applications that solve real-world problems. My experience
@@ -69,9 +80,10 @@
                 implementation and testing.
               </p>
             </section>
+
             <section class="text-section">
               <h3 class="text-section-h" id="js-h">JavaScript Developer</h3>
-              <p class="text-section-p" id="js-p">
+              <p class="text-section-p">
                 I have a completed Computer Science degree and continue to grow
                 my skills through a JavaScript academy as additional education.
                 I enjoy combining strong technical foundations with modern web
@@ -85,7 +97,7 @@
 
             <section class="text-section">
               <h3 class="text-section-h" id="python-h">Python</h3>
-              <p class="text-section-p" id="pyhon-p">
+              <p class="text-section-p">
                 I am a Python problem solver with a strong focus on logical
                 thinking and algorithmic challenges. I enjoy breaking down
                 complex problems into clear steps and translating them into
@@ -102,34 +114,85 @@
               </p>
             </section>
           </section>
+
           <section class="numbers">
             <div class="num-class">
               <div class="change">
-                <span class="views">32</span>
-                <span class="+k">+K</span>
+                <span class="views">32</span><span>+K</span>
               </div>
               <span class="letter-span">VIEWS</span>
             </div>
+
             <div class="num-class">
               <div class="change">
-                <span class="likes">32</span>
-                <span class="+k">+K</span>
+                <span class="likes">32</span><span>+K</span>
               </div>
               <span class="letter-span">LIKES</span>
             </div>
+
             <div class="num-class">
               <div class="change">
-                <span class="shares">32</span>
-                <span class="+k">+K</span>
+                <span class="shares">32</span><span>+K</span>
               </div>
               <span class="letter-span">SHARES</span>
             </div>
           </section>
+
           <section id="cv">
             <a href="./CV-EN.pdf" download>
-              <i class="fa-solid fa-circle-down"></i>
+              <i class="fa fa-download"></i>
               <span>CV (.pdf)</span>
             </a>
+          </section>
+        </section>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects-section">
+        <section id="projects-left">
+          <h2>My skills</h2>
+          <ul class="skills-list">
+            <li>
+              <label>HTML</label>
+              <div class="progress-bar" data-value="100">
+                <div class="progress-fill"></div>
+              </div>
+            </li>
+
+            <li>
+              <label>CSS</label>
+              <div class="progress-bar" data-value="95">
+                <div class="progress-fill"></div>
+              </div>
+            </li>
+
+            <li>
+              <label>JavaScript</label>
+              <div class="progress-bar" data-value="70">
+                <div class="progress-fill"></div>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <section id="projects-right">
+          <h2>My projects</h2>
+
+          <section id="slide-shows">
+            <div class="projects-albums" id="html-css">
+              <h3>HTML / CSS / JS</h3>
+              <ul></ul>
+            </div>
+
+            <div class="projects-albums" id="python">
+              <h3>Python</h3>
+              <ul></ul>
+            </div>
+
+            <div class="projects-albums" id="csharp">
+              <h3>C#</h3>
+              <ul></ul>
+            </div>
           </section>
         </section>
       </section>
@@ -138,6 +201,5 @@
     </main>
 
     <script src="./script1.js"></script>
-    
   </body>
 </html>

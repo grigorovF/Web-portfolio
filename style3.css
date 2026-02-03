@@ -22,9 +22,7 @@
 html,
 body {
   overflow-x: hidden;
-}
-
-body {
+  height: 100%;
   font-family: "Popins", sans-serif;
   background-color: var(--day-background);
   color: var(--day-primary-text);
@@ -53,10 +51,9 @@ header {
   font-size: 32px;
   color: var(--day-primary-text);
   opacity: 0;
-  transform: translateX(-150px); 
+  transform: translateX(-150px);
   animation: anim-main-left 0.8s ease forwards 0.8s;
 }
-
 
 .mode {
   border: 3px solid var(--day-primary-text);
@@ -128,10 +125,15 @@ header nav ul li:last-child {
   font-size: 28px;
 }
 
-
-header nav ul li:nth-child(1) { animation: anim-main-right 0.6s ease forwards 1.2s; }
-header nav ul li:nth-child(2) { animation: anim-main-right 0.6s ease forwards 1.4s; }
-header nav ul li:nth-child(3) { animation: anim-main-right 0.6s ease forwards 1.6s; }
+header nav ul li:nth-child(1) {
+  animation: anim-main-right 0.6s ease forwards 1.2s;
+}
+header nav ul li:nth-child(2) {
+  animation: anim-main-right 0.6s ease forwards 1.4s;
+}
+header nav ul li:nth-child(3) {
+  animation: anim-main-right 0.6s ease forwards 1.6s;
+}
 
 header nav ul li a::after {
   content: "";
@@ -190,7 +192,6 @@ header nav ul li a:hover::after {
   display: flex;
   gap: 10px;
   width: 100%;
-
 }
 
 .nav-list li:last-child {
@@ -216,18 +217,23 @@ header nav ul li a:hover::after {
 
 .nav-list li a:hover {
   background-color: var(--day-accents);
-  border-radius: 7px; /* slightly less than parent */
+  border-radius: 7px; /
 }
 main {
   width: 100%;
+  height: 100%;
+  
+  position: relative;
+  overflow: hidden;
 }
 
 #about-section {
   display: flex;
   gap: 80px;
   width: 100%;
-  padding: 40px 5%;
-  align-items: flex-start;
+  padding-left: 5%;
+  padding-right: 5%;
+  min-height: calc(100vh-80px);
 }
 
 #about-left {
@@ -269,13 +275,11 @@ main {
   border-radius: 50%;
 }
 
-
 .social-icons li:nth-child(1) {
   opacity: 0;
   transform: translateX(-150px);
   animation: anim-main-left 2.1s ease forwards;
 }
-
 
 .social-icons li:nth-child(2) {
   opacity: 0;
@@ -343,7 +347,9 @@ main {
   max-width: 900px;
   opacity: 0;
   transform: translateX(50px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
   display: flex;
   flex-direction: column;
 }
@@ -361,13 +367,22 @@ main {
 .text-section h3 {
   font-size: 32px;
   font-weight: 900;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  color: var(--day-primary-text);
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .text-section p {
   font-size: 18px;
   text-align: justify;
   visibility: hidden;
+  line-height: 1.6;
+  color: var(--day-primary-text);
+  font-family:
+    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  opacity: 0.9;
 }
 
 .about-spacer {
@@ -377,13 +392,13 @@ main {
 .numbers {
   display: flex;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
   margin-bottom: 24px;
 }
 
 #about-section.animate .numbers {
   animation: anim-numbers 0.7s ease forwards;
-} 
+}
 
 .num-class {
   font-family: "Michroma";
@@ -415,11 +430,9 @@ main {
 }
 
 #cv {
-    display: flex;
-    align-self: self-end;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
-
 
 #about-right a {
   text-decoration: none;
@@ -435,8 +448,8 @@ main {
   font-weight: bold;
 }
 
-
-.darkMode #about-section, .darkMode #project-section {
+.darkMode #about-section,
+.darkMode #project-section {
   background-color: var(--night-background);
 }
 .darkMode header {
@@ -550,6 +563,7 @@ main {
   background-color: var(--night-accents);
   color: #fff;
 }
+
 @media screen and (max-width: 768px) {
   header nav ul li {
     display: none;
@@ -558,7 +572,7 @@ main {
   header nav ul li:last-child {
     display: flex;
     font-size: 28px;
-    color:#0f1115;
+    color: #0f1115;
     opacity: 1;
   }
 
@@ -574,18 +588,26 @@ main {
     border-radius: 10px;
   }
 
-  
-
   #about-section {
     display: flex;
     flex-direction: column;
     gap: 40px;
     align-items: center;
+    padding: 20px 5%;
   }
 
-  #about-left img{
-    max-width: 400px;
-    max-height: 400px;
+  #about-left {
+    flex: 0 0 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #about-left img {
+    width: 90%;
+    max-width: 300px;
+    max-height: 300px;
   }
 
   .social-icons li {
@@ -593,28 +615,130 @@ main {
     height: 55px;
     font-size: 30px;
   }
-  
+
   #about-right {
     width: 90%;
-    max-width: 900px;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .text-section h3,
+  #about-right h2 {
+    text-align: center;
   }
 
-  .text-section h3,
-  #about-right h2{
-    text-align: center;
-  } 
-  
+  .text-section {
+    max-height: 550px;
+  }
 
   .numbers {
-    margin: 50px auto;
+    margin-top: 30%;
   }
-
-  .change{
-    font-size: clamp(16px, 25px, 64px);
+  .change {
+    font-size: clamp(8px, 14px, 20px);
   }
 }
 
+@media screen and (min-width: 1920px) {
+  header {
+    height: 160px;
+  }
+  main {
+    min-height: calc(100vh - 160px);
+  }
+
+  .header-left h3 {
+    font-size: clamp(32px, 64px, 96px);
+    font-weight: bolder;
+  }
+
+  .header-right ul li {
+    font-size: clamp(20px, 40px, 60px);
+    font-weight: bolder;
+  }
+
+  header .mode {
+    width: 260px;
+    height: 90px;
+  }
+
+  header .mode span {
+    font-size: 48px;
+  }
+
+  .mode #togle-btn {
+    width: 80px;
+    height: 80px;
+  }
+
+  #about-section {
+    display: flex;
+    gap: 200px;
+    justify-content: space-between;
+    align-items: stretch;
+    min-height: 100%;
+    align-items: center;
+  }
+  .main-text {
+    min-height: 650px;
+    margin-bottom: 70px;
+  }
+
+  #about-right {
+    display: grid;
+    grid-template-rows: auto 1fr auto auto;
+    height: 100%;
+  }
+  #about-left img {
+    width: 950px;
+    max-width: 1200px;
+    height: 950px;
+    max-height: 1200px;
+  }
+
+  #about-left li {
+    width: 180px;
+    height: 180px;
+    font-size: 90px;
+  }
+
+  #about-right h2 {
+    font-size: clamp(32px, 86px, 148px);
+  }
+  #about-right h3 {
+    font-size: clamp(48px, 68px, 112px);
+  }
+
+  .text-section {
+    min-width: 100%;
+  }
+
+  #about-right p {
+    font-size: clamp(18px, 36px, 48px);
+  }
+  #about-right a {
+    width: 450px;
+    height: 150px;
+    font-weight: bolder;
+    font-size: 50px;
+  }
+
+  .numbers {
+    margin-top: auto;
+    margin-bottom: 100px;
+  }
+
+  .num-class span {
+    font-size: clamp(48px, 68px, 86px);
+  }
+
+  .num-class .letter-span {
+    font-size: clamp(20px, 30px, 32px);
+  }
+
+  #cv {
+    align-self: self-end;
+  }
+}
 
 @keyframes anim-main-left {
   0% {
@@ -670,4 +794,34 @@ main {
   100% {
     transform: rotate(90deg);
   }
+}
+
+.hide-left {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+
+main > section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transform: translateX(100%);
+  pointer-events: none;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+main > section.active-page {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  z-index: 2;
+}
+
+main > section.hide-left {
+  opacity: 0;
+  transform: translateX(-100%);
+  z-index: 1;
 }

@@ -460,16 +460,6 @@ main {
   transform: translateY(0);
 }
 
-#about-right, #projects-right{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
-  flex: 1;
-  max-height: 90vw;
-}
-
-
 #about-right h2, #projects-right h2 {
   font-size: 48px;
   font-weight: 900;

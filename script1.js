@@ -155,3 +155,41 @@ setInterval(() => {
 
     animateCounter(viewsEl, parseInt(viewsEl.textContent), views, 500);
 }, 1500);
+
+let currentPage = document.querySelector(".active-page");
+
+
+const allNavLinks = document.querySelectorAll('a[href^="#"]');
+
+function showPage(targetId) {
+  const target = document.getElementById(targetId);
+  if (!target || target === currentPage) return;
+
+  currentPage.classList.remove("active-page");
+  currentPage.classList.add("hide-left");
+
+  target.classList.remove("hide-left");
+  target.classList.add("active-page");
+
+  setTimeout(() => {
+    currentPage.classList.remove("hide-left");
+    currentPage = target;
+  }, 600);
+}
+
+
+window.addEventListener('DOMContentLoaded', () => {
+    showPage('about-section');
+});
+
+allNavLinks.forEach(link => {
+  link.addEventListener("click", e => {
+    const id = link.getAttribute("href").slice(1);
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    e.preventDefault();
+    showPage(id);
+    navList.classList.remove("active");
+  });
+});
